@@ -31,6 +31,12 @@
                         "schema": {
                             "$ref": "#/definitions/Articles"
                         }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    },
+                    "404": {
+                        "description": "Failed. Articles not found."
                     }
                 }
             },
@@ -60,8 +66,17 @@
                             "$ref": "#/definitions/id"
                         }
                     },
+                    "201": {
+                        "description": "Article created",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
                     "400": {
                         "description": "Failed. Bad post data."
+                    },
+                    "404": {
+                        "description": "Failed. Articles not found."
                     }
                 }
             }
@@ -110,8 +125,14 @@
                             "$ref": "#/definitions/Article"
                         }
                     },
+                    "201": {
+                        "description": "Article updated",
+                        "schema": {
+                            "$ref": "#/definitions/Article"
+                        }
+                    },
                     "400": {
-                        "description": "Failed. Bad post data."
+                        "description": "Failed. Bad updating data."
                     },
                     "404": {
                         "description": "Failed. Article not found."
@@ -159,14 +180,20 @@
         "Article": {
             "type": "object",
             "properties": {
-                "name": {
+                "title": {
+                    "type": "string"
+                },
+                "subtitle": {
                     "type": "string"
                 },
                 "description": {
                     "type": "string"
                 },
-                "amount": {
-                    "type": "number"
+                "imageUrl": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
                 }
             }
         },

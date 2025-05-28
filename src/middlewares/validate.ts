@@ -8,8 +8,8 @@ const validate = (schema: object) => (req: Request, _res: Response, next: NextFu
   const validSchema = pick(schema, ['params', 'query', 'body']);
   const obj = pick(req, Object.keys(validSchema));
   const { value, error } = Joi.compile(validSchema)
-    .prefs({ errors: { label: 'key' }, abortEarly: false })
-    .validate(obj);
+  .prefs({ errors: { label: 'key' }, abortEarly: false })
+  .validate(obj);
   if (error) {
     const errorMessage = error.details.map((details) => details.message).join(', ');
     return next(new ApiError(httpStatus.BAD_REQUEST, errorMessage));

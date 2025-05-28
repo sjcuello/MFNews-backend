@@ -162,6 +162,12 @@
                             "$ref": "#/definitions/id"
                         }
                     },
+                    "204": {
+                        "description": "Article deleted"
+                    },
+                    "400": {
+                        "description": "Failed. Bad deleting data."
+                    },
                     "404": {
                         "description": "Failed. Article not found."
                     }

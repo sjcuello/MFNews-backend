@@ -12,8 +12,8 @@ router
 
 router
   .route('/:articleId')
-  .delete(validate(articleValidation.updateArticle), articleController.deleteArticle)
-  .patch(validate(articleValidation.deleteArticle), articleController.updateArticle);
+  .delete(validate(articleValidation.deleteArticle), articleController.deleteArticle)
+  .patch(validate(articleValidation.updateArticle), articleController.updateArticle);
 
 
 export default router;

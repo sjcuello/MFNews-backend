@@ -17,6 +17,8 @@ __Note:__ You need to have NodeJS (v20) installed in your machine to run this ap
     ```bash
     cp .env.example .env
     ```
+    >__Note:__ You need to fill the `.env` file with your own database credentials. Change the `DATABASE_URL` variable to point to your Postgres database or a docker container running Postgres.
+    
 4. Install the dependencies
     ```bash
     npm install
@@ -29,7 +31,11 @@ __Note:__ You need to have NodeJS (v20) installed in your machine to run this ap
     ```bash
     npx prisma migrate dev
     ```
-7. Start the server
+7. Run the seed
+    ```bash
+    npx prisma db seed 
+    ```
+8. Start the server
     ```bash
     npm run dev
     ```

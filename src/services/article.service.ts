@@ -10,23 +10,22 @@ const allArticleKeys: (keyof Article)[] = [
   'description',
   'imageUrl',
   'author',
+  'category',
+  'content',
   'createdAt',
   'updatedAt'
 ];
 
 const createArticle = async (
-  title: string,
-  subtitle: string,
-  description: string,
-  imageUrl: string,
-  author: string,
+  {data}: {data: Partial<Article>},
 ): Promise<Article> => {
   try {
-    if (await getArticleByTitle(title)) {
+    if (await getArticleByTitle(data.title!)) {
       throw new ApiError(httpStatus.BAD_REQUEST, 'Title already taken');
     }
+    const { id, ...createData } = data;
     return await prisma.article.create({
-      data: { title, description, subtitle, imageUrl, author }
+      data: createData as Prisma.ArticleCreateInput
     });
   } catch (error) {
     console.error('Error creating article:', error);

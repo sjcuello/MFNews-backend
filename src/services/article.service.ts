@@ -12,6 +12,7 @@ const allArticleKeys: (keyof Article)[] = [
   'author',
   'category',
   'content',
+  'contentDesc',
   'createdAt',
   'updatedAt'
 ];

@@ -9,6 +9,7 @@ const createArticle = {
     author: Joi.string().required(),
     category: Joi.string().required(),
     content: Joi.string().required(),
+    contentDesc: Joi.string().required(),
   })
 };
 
@@ -25,6 +26,7 @@ const updateArticle = {
       author: Joi.string().required(),
       category: Joi.string().required(),
       content: Joi.string().required(),
+      contentDesc: Joi.string().required(),
       markAsDeleted: Joi.boolean(),
       id: Joi.number(),
       createdAt: Joi.date(),

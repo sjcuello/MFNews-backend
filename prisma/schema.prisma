@@ -16,6 +16,7 @@ model Article {
   imageUrl      String
   author        String
   category      String
+  contentDesc   String        @default("") // Short description of the article
   content       String
   markAsDeleted Boolean       @default(false)
   createdAt     DateTime      @default(now())

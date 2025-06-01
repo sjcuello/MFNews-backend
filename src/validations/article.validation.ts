@@ -7,6 +7,8 @@ const createArticle = {
     description: Joi.string().required(),
     imageUrl: Joi.string().required(),
     author: Joi.string().required(),
+    category: Joi.string().required(),
+    content: Joi.string().required(),
   })
 };
 
@@ -21,6 +23,8 @@ const updateArticle = {
       description: Joi.string().required(),
       imageUrl: Joi.string().required(),
       author: Joi.string().required(),
+      category: Joi.string().required(),
+      content: Joi.string().required(),
       markAsDeleted: Joi.boolean(),
       id: Joi.number(),
       createdAt: Joi.date(),

@@ -5,9 +5,8 @@ import httpStatus from 'http-status';
 
 
 const createArticle = async (req: Request, res: Response) => {
-  const articleData = req.body;
   try {
-    const article = await articleService.createArticle(articleData);
+    const article = await articleService.createArticle({ data: req.body });
     res.status(httpStatus.CREATED).send(article);
   } catch (error) {
     res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error: 'Failed to create article' });

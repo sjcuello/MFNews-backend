@@ -43,6 +43,11 @@ __Note:__ You need to have NodeJS (v20) installed in your machine to run this ap
 The server will be running on `http://localhost:3000`
 The documentation will be available on `http://localhost:3000/docs`
 
+## Testing
+If you want to run the tests, you can do so with:
+```bash
+npm run test
+```
 
 ## Technologies Used
 - NodeJS
@@ -52,3 +57,4 @@ The documentation will be available on `http://localhost:3000/docs`
 - TypeScript
 - Swagger
 - Joi
+- Jest

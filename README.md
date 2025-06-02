@@ -13,7 +13,7 @@ __Note:__ You need to have NodeJS (v20) installed in your machine to run this ap
     ```bash
     cd MFNews-backend
     ```
-3. Copy the `.env.example` file and rename it to `.env`:
+3. Copy the `.env.example` file and rename it to `.env`. You can do this easily by running:
     ```bash
     cp .env.example .env
     ```

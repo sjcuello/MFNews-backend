@@ -4,8 +4,7 @@
         "version": "1.0.0",
         "title": "MFNews - Docs"
     },
-    "servers": [
-    ],
+    "servers": [],
     "tags": [
         {
             "name": "Articles",
@@ -77,6 +76,48 @@
                     },
                     "404": {
                         "description": "Failed. Articles not found."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Delete selected articles",
+                "requestBody": {
+                    "description": "Array of article IDs to delete",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "articleIds"
+                                ],
+                                "properties": {
+                                    "articleIds": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Articles deleted successfully"
+                    },
+                    "400": {
+                        "description": "Invalid article IDs"
+                    },
+                    "404": {
+                        "description": "Articles not found"
+                    },
+                    "500": {
+                        "description": "Error deleting articles"
                     }
                 }
             }

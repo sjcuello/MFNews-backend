@@ -8,7 +8,8 @@ const router = express.Router();
 router
   .route('/')
   .get(articleController.getArticles)
-  .post(validate(articleValidation.createArticle), articleController.createArticle);
+  .post(validate(articleValidation.createArticle), articleController.createArticle)
+  .delete(validate(articleValidation.deleteArticles), articleController.deleteArticles);
 
 router
   .route('/:articleId')

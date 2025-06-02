@@ -40,8 +40,15 @@ const deleteArticle = {
   })
 };
 
+const deleteArticles = {
+  body: Joi.object().keys({
+    articleIds: Joi.array().items(Joi.number()).required()
+  })
+};
+
 export default {
   createArticle,
   updateArticle,
-  deleteArticle
+  deleteArticle,
+  deleteArticles
 };

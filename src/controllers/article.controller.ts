@@ -30,9 +30,19 @@ const deleteArticle = async (req: Request, res: Response) => {
   res.status(httpStatus.NO_CONTENT).send();
 };
 
+const deleteArticles = async (req: Request, res: Response) => {
+  const articleIds = req.body.articleIds as number[];
+  if (!Array.isArray(articleIds) || articleIds.length === 0) {
+    return res.status(httpStatus.BAD_REQUEST).send({ error: 'Invalid article IDs' });
+  }
+  await articleService.deleteArticlesByIds(articleIds);
+  res.status(httpStatus.NO_CONTENT).send();
+};
+
 export default {
   createArticle,
   getArticles,
   updateArticle,
-  deleteArticle
+  deleteArticle,
+  deleteArticles
 };

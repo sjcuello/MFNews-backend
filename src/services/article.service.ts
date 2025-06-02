@@ -120,6 +120,19 @@ const deleteArticleById = async (articleId: number): Promise<Article> => {
   }
 };
 
+const deleteArticlesByIds = async (articleIds: number[]): Promise<void> => {
+  if (articleIds.length === 0) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid article IDs');
+  }
+  try {
+    await prisma.article.deleteMany({
+      where: { id: { in: articleIds } }
+    });
+  } catch (error) {
+    throw error instanceof ApiError ? error : new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Error deleting articles by IDs');
+  }
+};
+
 const changeIsDeleted = async (articleId: number, currentMarkAsDeleted: boolean): Promise<Article> => {
   return await prisma.article.update({
     where: { id: articleId },
@@ -135,5 +148,6 @@ export default {
   getArticleByTitle,
   updateArticleById,
   deleteArticleById,
+  deleteArticlesByIds,
   changeIsDeleted
 };
